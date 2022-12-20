@@ -387,3 +387,123 @@ var employee = {
 console.log(typeof employee)
 employee.greet() // 3
 ```
+
+## lecture 12 Default function parameters
+
+1. in ES5 if we would have to call a function with a value which is not passed to it. it will give us an `undefined` output for the value. for example in below code.
+
+```
+/* lecture 12 Default function Parameters */
+
+// with ES5 it was not possible to pass a default value
+// Error value is not defined
+// let getValue = function(){
+//   console.log(value)
+// }
+// getValue();
+```
+
+2. is ES6 we can give a default value in function definition
+
+```
+// with ES6 it is possible for pass a default value in funtion definition
+// so even if we didn't pass a value while calling the function it will take the default
+let getValue = function(value = 5){
+  console.log(value)
+}
+getValue();  // 5
+```
+
+3. call for a second time by passing a value
+
+```
+let getValue = function(value = 5){
+  console.log(value)
+}
+getValue(); // 5
+getValue(10) // 10
+```
+
+4. add a second default value of `bonus`
+
+```
+// adding a second default value bonus
+let getValue = function(value = 5, bonus=10){
+  console.log(value + bonus)
+}
+getValue(); // 15
+getValue(10) // 20
+getValue(20,30) // 50
+getValue(undefined, 30) // 35. undefined will take the default value
+```
+
+5. lets tweek our parameters
+
+```
+// lets tweek our parameters
+let getValue = function(value = 5, bonus=value*0.1){
+  console.log(value + bonus)
+}
+getValue(); // 5.5
+getValue(10) // 11
+getValue(20,30) // 50
+getValue(undefined, 30) // 35. undefined will take the default value
+```
+
+6. we can also assign the number in parameters to a variable
+
+```
+// we can assign variable to the number in parameter
+let percentBonus = 0.1
+let getValue = function(value = 5, bonus=value*percentBonus){
+  console.log(value + bonus)
+}
+getValue(); // 5.5
+getValue(10) // 11
+getValue(20,30) // 50
+getValue(undefined, 30) // 35. undefined will take the default value
+```
+
+7. we can also assign values to a function instead of a variable
+
+```
+// we can assign values to a function instead of a variable
+let percentBonus = () => 0.1
+let getValue = function(value = 5, bonus=value*percentBonus()){
+  console.log(value + bonus)
+}
+getValue(); // 5.5
+getValue(10) // 11
+getValue(20,30) // 50
+getValue(undefined, 30) // 35. undefined will take the default value
+```
+
+8. what about `arguments.length`. it will take into consideration the arguments passed and not the default values
+
+```
+// what about `arguments.length`. it will take into consideration the arguments passed and not the default values
+let percentBonus = () => 0.1
+let getValue = function(value = 5, bonus=value*percentBonus()){
+  console.log(value + bonus)
+  console.log(arguments.length) // output 0,1,2
+}
+getValue(); // 5.5
+getValue(10) // 11
+getValue(20,30) // 50
+getValue(undefined, 30) // 35. undefined will take the default value
+```
+
+9. we cannot assign the right side default value to the left side value. it doesn't support look ahead. so in below example gives us an error (parameter "value" cannot reference identifier "bonus" declare after it Error)
+
+```
+// parameter "value" cannot reference identifier "bonus" declare after it Error
+let percentBonus = () => 0.1
+let getValue = function(value = bonus, bonus=value*percentBonus()){
+  console.log(value + bonus)
+  console.log(arguments.length) // output 0,1,2,2
+}
+getValue(); // 5.5
+getValue(10) // 11
+getValue(20,30) // 50
+getValue(undefined, 30) // 35. undefined will take the default value
+```
