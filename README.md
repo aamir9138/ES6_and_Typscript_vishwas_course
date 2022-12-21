@@ -507,3 +507,104 @@ getValue(10) // 11
 getValue(20,30) // 50
 getValue(undefined, 30) // 35. undefined will take the default value
 ```
+
+## lecture 13 Rest Operator
+
+- let's have a function that display colors
+- so in ES5 we can have something like below
+
+```
+let displayColors = function(){
+for(let i in arguments){
+  console.log(arguments[i])
+}
+}
+
+displayColors('red1') // red1
+displayColors('red2','blue2') // red2, blue2
+displayColors('red3','blue3','green3')// red3, blue3, green3
+
+// output will be
+// red1
+// red2
+// blue2
+// red3
+// blue3
+// green3
+```
+
+- so in the above code one can say that function is not expecting any argument, but we are passing different no of arguments in the function call.
+- also one can say what is `argument` inside the function from where did it come
+- also if we have to pass a message with each function call. so the code becomes
+
+```
+// if we have to pass a message also
+
+let displayColors = function(){
+  console.log(message)
+  for(let i in arguments){
+    console.log(arguments[i])
+  }
+  }
+
+  let message = 'list of colors'
+  displayColors(message,'red1') // list of colors, list of colors, red1
+  displayColors(message,'red2','blue2') // list of colors, list of colors, red2, blue2
+  displayColors(message, 'red3','blue3','green3')// list of colors, list of colors, red3, blue3, green3
+
+  // output will be
+  // list of colors
+  // list of colors
+  // red1
+  // list of colors
+  // list of colors
+  // red2
+  // blue2
+  // list of colors
+  // list of colors
+  // red3
+  // blue3
+  // green3
+```
+
+- so the output of the above shows that the `message` is also an argument
+
+### importance of Rest Parameters is ES6
+
+1. The Rest parameters represents an indefinite number of arguments as an array
+2. we can modify the above code with Rest parameters which will make much more sense
+
+```
+// we can modify the above code with ES6 to make it more readable and will make sense
+let displayColors = function(message, ...colors){
+  console.log(message) // list of colors
+  console.log(colors) // ['red1'], ['red2', 'blue2'], ['red3', 'blue3', 'green3']
+  console.log(arguments.length) // 2,3,4
+
+  for(let i in colors){
+    console.log(colors[i])
+  }
+  }
+
+  let message = 'list of colors'
+  displayColors(message,'red1') // list of colors, red1
+  displayColors(message,'red2','blue2') // list of colors,  red2, blue2
+  displayColors(message, 'red3','blue3','green3')// list of colors,  red3, blue3, green3
+
+  //output is below
+  // list of colors
+  // ['red1']
+  // 2
+  // red1
+  // list of colors
+  // (2) ['red2', 'blue2']
+  // 3
+  // red2
+  // blue2
+  // list of colors
+  // (3) ['red3', 'blue3', 'green3']
+  // 4
+  // red3
+  // blue3
+  // green3
+```

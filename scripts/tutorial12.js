@@ -47,20 +47,10 @@
 // getValue(10) // 11
 // getValue(20,30) // 50
 // getValue(undefined, 30) // 35. undefined will take the default value
-// // what about `arguments.length`. it will take into consideration the arguments passed and not the default values
-// let percentBonus = () => 0.1
-// let getValue = function(value = 5, bonus=value*percentBonus()){
-//   console.log(value + bonus)
-//   console.log(arguments.length) // output 0,1,2,2
-// }
-// getValue(); // 5.5
-// getValue(10) // 11
-// getValue(20,30) // 50
-// getValue(undefined, 30) // 35. undefined will take the default value
-// parameter "value" cannot reference identifier "bonus" declare after it Error
+// what about `arguments.length`. it will take into consideration the arguments passed and not the default values
 var percentBonus = function () { return 0.1; };
 var getValue = function (value, bonus) {
-    if (value === void 0) { value = bonus; }
+    if (value === void 0) { value = 5; }
     if (bonus === void 0) { bonus = value * percentBonus(); }
     console.log(value + bonus);
     console.log(arguments.length); // output 0,1,2,2
@@ -69,4 +59,14 @@ getValue(); // 5.5
 getValue(10); // 11
 getValue(20, 30); // 50
 getValue(undefined, 30); // 35. undefined will take the default value
+// // parameter "value" cannot reference identifier "bonus" declare after it Error
+// let percentBonus = () => 0.1
+// let getValue = function(value = bonus, bonus=value*percentBonus()){
+//   console.log(value + bonus)
+//   console.log(arguments.length) // output 0,1,2,2
+// }
+// getValue(); // 5.5
+// getValue(10) // 11
+// getValue(20,30) // 50
+// getValue(undefined, 30) // 35. undefined will take the default value
 //# sourceMappingURL=tutorial12.js.map
