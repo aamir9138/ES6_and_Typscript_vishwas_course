@@ -608,3 +608,34 @@ let displayColors = function(message, ...colors){
   // blue3
   // green3
 ```
+
+## lecture 14 Spread Operator
+
+- Spread Operator is opposite to Rest Operator. Rest Operator was gathering all the arguments in an Array. while Spread Operator is removing all the items from array.
+- Rest == combine
+- Spread == split
+- `Rest Operator` is used in the `function declaration` where as the `Spread Operator` is used in the function call
+- let say we have an Array of colors and we want to pass it to a function
+
+```
+/* lecture 14 Spread Operator */
+let displayColors = function(message, ...colors){ // Rest Operator
+  console.log(message) // list of colors
+  console.log(colors) // ['Orange','yellow','Indigo']
+  console.log(arguments.length) // 4
+
+  for(let i in colors){
+    console.log(colors[i])
+  }
+ // Orange
+ // yellow
+ // Indigo
+  }
+
+  let message = 'list of colors'
+  let colorArray = ["Orange", 'yellow', 'Indigo']
+  displayColors(message, ...colorArray) // Spread Operator
+  // displayColors(message,'red1') // list of colors, red1
+  // displayColors(message,'red2','blue2') // list of colors,  red2, blue2
+  // displayColors(message, 'red3','blue3','green3')// list of colors,  red3, blue3, green3
+```
