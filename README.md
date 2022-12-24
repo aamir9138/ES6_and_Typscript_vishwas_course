@@ -759,3 +759,34 @@ console.log(person.lastName)
 console.log(person.fullName)
 console.log(person.isSenior()) // true is a senior citzen
 ```
+
+## lecture 16 Object Literal Part 2
+
+1. continuing on Object Literals. with ES6 we can have Object Literals with `properties` name having spaces between the words. like so
+
+```
+let person = {
+  "first name": "Chandler"
+}
+```
+
+2. if we have a property defined like this than when we want to access it. we can't use the `dot` structure instead we have to use `[]` with the property name inside with double quotes. like so
+
+```
+console.log(person["first name"]) // Chandler
+```
+
+3. also the property name can be a variable. but then we have to use the `[]` brackets. like below
+
+```
+/* lecture 16 Object literals Part 2 */
+
+let ln = "last name"
+let person = {
+  "first name": "Chandler",
+  [ln]: "Bing"
+}
+console.log(person) // {
+  // first name : 'Chandler',
+  // last name : 'Bing'}
+```

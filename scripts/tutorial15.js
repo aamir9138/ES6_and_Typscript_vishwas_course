@@ -61,21 +61,21 @@
 // console.log(person.lastName)
 // console.log(person.fullName)
 // console.log(person.isSenior()) // false not senior citzen
-// return one property as a function in Object Literal ES6 shorthand
-function createPerson(firstName, lastName, age) {
-    var fullName = firstName + " " + lastName;
-    return {
-        firstName: firstName,
-        lastName: lastName,
-        fullName: fullName,
-        isSenior: function () {
-            return age > 60;
-        }
-    };
-}
-var person = createPerson("Aamir", "Muhammad", 64);
-console.log(person.firstName);
-console.log(person.lastName);
-console.log(person.fullName);
-console.log(person.isSenior()); // true is a senior citzen
+// // return one property as a function in Object Literal ES6 shorthand
+// function createPerson(firstName, lastName, age){
+//   let fullName = firstName + " " + lastName;
+//   return {
+//     firstName: firstName,
+//     lastName: lastName,
+//     fullName: fullName,
+//     isSenior(){
+//       return age > 60
+//     }
+//   }
+// }
+// let person = createPerson("Aamir", "Muhammad", 64)
+// console.log(person.firstName)
+// console.log(person.lastName)
+// console.log(person.fullName)
+// console.log(person.isSenior()) // true is a senior citzen
 //# sourceMappingURL=tutorial15.js.map
