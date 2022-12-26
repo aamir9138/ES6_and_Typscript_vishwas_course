@@ -32,10 +32,10 @@
 // console.log(firstName)  // Chandler
 // console.log(lastName)   // Bing
 // console.log(gender)     // female
-// if we provide now male in the above array
-var employee = ["Chandler", "Bing", "male"];
-var firstName = employee[0], lastName = employee[1], _a = employee[2], gender = _a === void 0 ? "female" : _a; // destructuring
-console.log(firstName); // Chandler
-console.log(lastName); // Bing
-console.log(gender); // male
+// // if we provide now male in the above array
+// let employee = ["Chandler", "Bing", "male"]
+// let [firstName, lastName, gender="female"] = employee; // destructuring
+// console.log(firstName)  // Chandler
+// console.log(lastName)   // Bing
+// console.log(gender)     // male
 //# sourceMappingURL=tutorial17.js.map

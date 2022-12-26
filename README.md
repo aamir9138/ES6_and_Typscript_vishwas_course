@@ -860,3 +860,38 @@ console.log(firstName)  // Chandler
 console.log(lastName)   // Bing
 console.log(gender)     // male
 ```
+
+## lecture 18 Destructuring Objects
+
+- let us write the same data from the previous lecture which were in Array form. now write it in an `Object`.
+- the property names and the variables name must be same while destructuring objects.
+
+```
+/* lecture 18 Destructuring Objects */
+let employee = {
+  firstName: "Chandler",
+  lastName: "Bing",
+  gender: "male"
+}
+// the property names and the variables name must be same while destructuring objects
+let {firstName, lastName, gender} = employee; // destructuring object
+console.log(firstName)  // Chandler
+console.log(lastName)   // Bing
+console.log(gender)     // male
+```
+
+- we can change the original names of the properties while destructuring using `aliases` as below.
+
+```
+// use of aliases
+let employee = {
+  firstName: "Chandler",
+  lastName: "Bing",
+  gender: "male"
+}
+// the property names and the variables name must be same while destructuring objects
+let {firstName: fn, lastName: ln, gender: g} = employee; // destructuring object
+console.log(fn)  // Chandler
+console.log(ln)   // Bing
+console.log(g)     // male
+```

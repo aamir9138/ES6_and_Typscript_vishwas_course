@@ -37,9 +37,9 @@
 // console.log(lastName)   // Bing
 // console.log(gender)     // female
 
-// if we provide now male in the above array
-let employee = ["Chandler", "Bing", "male"]
-let [firstName, lastName, gender="female"] = employee; // destructuring
-console.log(firstName)  // Chandler
-console.log(lastName)   // Bing
-console.log(gender)     // male
+// // if we provide now male in the above array
+// let employee = ["Chandler", "Bing", "male"]
+// let [firstName, lastName, gender="female"] = employee; // destructuring
+// console.log(firstName)  // Chandler
+// console.log(lastName)   // Bing
+// console.log(gender)     // male
