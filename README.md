@@ -895,3 +895,13 @@ console.log(fn)  // Chandler
 console.log(ln)   // Bing
 console.log(g)     // male
 ```
+
+## lecture 19 String Templates
+
+```
+let user = "Chandler"
+let greet = `Welcome 'single' and "double" quote ${user} to ES6
+            This is the second line with white spaces.
+            Third and so            on`;
+console.log(greet)
+```
