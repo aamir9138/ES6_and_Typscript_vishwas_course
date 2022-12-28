@@ -905,3 +905,56 @@ let greet = `Welcome 'single' and "double" quote ${user} to ES6
             Third and so            on`;
 console.log(greet)
 ```
+
+## lecture 20 for of Loop
+
+in ES6 we have a new loop `for of`. it is used to loop our iterables. we will learn about iterables later.
+
+### for of loop with Arrays
+
+Normally before ES6 what we do. we use `for in` loop which uses `index` of the Array.
+
+```
+// for in loop (uses index)
+let colors = ['Red', 'blue', 'green']
+for(let index in colors){
+  console.log(colors[index])
+}
+
+// output
+// Red
+// blue
+// green
+
+```
+
+but now we have `for of` loop. where we don't need to use `index`. so the code is reduced.
+
+```
+// for of loop (not using index)
+let colors = ['Red', 'blue', 'green']
+for(let color of colors){
+  console.log(color)
+}
+
+// output
+// Red
+// blue
+// green
+```
+
+### for of loop with strings
+
+it will take each character one by one.
+
+```
+// for of loop with strings
+let letters = "ABC"
+for(let letter of letters){
+  console.log(letter)
+}
+// output
+// A
+// B
+// C
+```
