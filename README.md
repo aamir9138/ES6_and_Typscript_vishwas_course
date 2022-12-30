@@ -958,3 +958,49 @@ for(let letter of letters){
 // B
 // C
 ```
+
+## lecture 21 Class
+
+- to define class we have `class` keyword followed by the class name.
+- class name must start with `capital letter`
+- than followed by curly braces `{}`
+- when class is created we can than create an instance of it by using `new` keyword `class name` and `()`
+- `typeOf(class)` will give you function at the console.
+- so classes are in fact functions.
+
+### class and function difference
+
+Classes are functions but classes are not hoisted.
+
+```
+/* lecture 21 Class */
+
+// Class
+let p1 = new Person() // here it gives us error ("Person is not a constructor")
+// it means classes are not hoisted like normal functions
+class Person{}
+let p = new Person()
+console.log(typeof(Person)) // function. means class is infact a function
+
+// function
+employee1()  // so if we call function before its declaration it is fine.
+// functions are hoisted
+function employee1(){}
+employee1()
+```
+
+### class is a syntactical sugar to the existing prototype base inheritance
+
+so if we create a method inside the `Person` class.
+
+```
+class Person{
+  greet(){}
+}
+let p = new Person()
+console.log(p.greet === Person.prototype.greet) // true
+```
+
+- so adding a method to the class is the same as adding a method to the prototype object.
+- so the class syntax is not introducing a new Object model to javascript.
+- it is a syntactical sugar to the existing prototype base inheritance
