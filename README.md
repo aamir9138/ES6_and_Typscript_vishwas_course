@@ -1004,3 +1004,47 @@ console.log(p.greet === Person.prototype.greet) // true
 - so adding a method to the class is the same as adding a method to the prototype object.
 - so the class syntax is not introducing a new Object model to javascript.
 - it is a syntactical sugar to the existing prototype base inheritance
+
+## lecture 22 Class Body and Methods
+
+- class body is the part within the curly braces.
+- in ES6 not typescript a class body can contain only `methods` not `properties`
+
+In this lecture we will learn about 3 types of `methods`.
+
+<u>1. constructor method</u>
+
+- constructor method is used for creating and initializing an object.
+- for every class there can only be 1 constructor.
+- constructor method is called during object creation
+
+<u>2. static method</u>
+
+static method can be called directly by using `Person class` not the object
+
+<u>3. prototype method</u>
+
+prototype method, which we can be called using the class instances (object)
+
+```
+/* lecture 22 Class Body and Methods */
+
+class Person{
+  name
+  constructor(name){
+    this.name = name
+    console.log(this.name + " from constructor method called automatically upon instantiation of Person class")
+  }
+
+  static staticPerson(){
+    console.log("static method can be called directly by using Person class without an object")
+  }
+
+  greet(){
+    console.log("prototype method, which we can call using the class instance (object)")
+  }
+}
+let p = new Person("Chandler")
+Person.staticPerson()
+p.greet()
+```

@@ -13,8 +13,8 @@
 // function employee1(){}
 // employee1()  
 
-class Person{
-  greet(){}
-}
-let p = new Person()
-console.log(p.greet === Person.prototype.greet) // true
+// class Person{
+//   greet(){}
+// }
+// let p = new Person()
+// console.log(p.greet === Person.prototype.greet) // true

@@ -11,12 +11,9 @@
 // // functions are hoisted
 // function employee1(){}
 // employee1()  
-var Person = /** @class */ (function () {
-    function Person() {
-    }
-    Person.prototype.greet = function () { };
-    return Person;
-}());
-var p = new Person();
-console.log(p.greet === Person.prototype.greet); // true
+// class Person{
+//   greet(){}
+// }
+// let p = new Person()
+// console.log(p.greet === Person.prototype.greet) // true
 //# sourceMappingURL=tutorial21.js.map
