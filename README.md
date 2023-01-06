@@ -1048,3 +1048,151 @@ let p = new Person("Chandler")
 Person.staticPerson()
 p.greet()
 ```
+
+## lecture 23 Class Inheritance
+
+In ES6 class inheritance is possible with `extend` keywork.
+
+### scenario: constructor in Parent class only
+
+1. first create a parent class `Person` with a constructor.
+
+```
+/* lecture 23 Class Inheritance */
+class Person{
+  constructor(){
+    console.log("Person class constructor")
+  }
+}
+```
+
+2. create an empty child class `Employee` and extends it from `Person` class.
+
+```
+class Employee extends Person{
+
+}
+```
+
+3. when we only create the instance of child class `Employee` the parent class i.e. `Person` constructor is called. and we get the output at console.
+
+```
+const e = new Employee()
+```
+
+4. This holds true even for parameterized constructor. the parent constructor will be called upon instantiation of child class.
+
+```
+// for parameterized constructor
+class Person{
+  constructor(name){
+    console.log(name + " Person class constructor")
+  }
+}
+class Employee extends Person{
+
+}
+const e = new Employee('Chandler')
+```
+
+### scenario: constructor in Child class also
+
+if we add a constructor in child class also it will give us an error `Constructors for derived classes must contain a 'super' call`. for this reason we will add `super(name)` in child class constructor. super will call the parent class constructor
+
+```
+// scenario 2: a constructor in child class also
+class Person{
+  constructor(name){
+    console.log(name + " Person class constructor")
+  }
+}
+class Employee extends Person{
+  constructor(name){
+    super(name)
+    console.log(name + "Employee class constructor")
+  }
+}
+const e = new Employee('Chandler')
+
+// output
+// Chandler Person class constructor
+// ChandlerEmployee class constructor
+```
+
+### scenario: a method in parent class
+
+if we have a method in parent class. it is possible to call it by the instance of child class.
+
+```
+// scenario: calling parent class method from child
+class Person{
+  constructor(name){
+    console.log(name + " Person class constructor")
+  }
+  getId(){
+    return 10
+  }
+}
+class Employee extends Person{
+  constructor(name){
+    super(name)
+    console.log(name + "Employee class constructor")
+  }
+}
+const e = new Employee('Chandler')
+console.log(e.getId())  // 10
+```
+
+### scenario: if both parent and child has same method
+
+the method of the child will be called if we have same methods in both
+
+```
+// scenario: if parent and child has same methods. child method will be called
+class Person{
+  constructor(name){
+    console.log(name + " Person class constructor")
+  }
+  getId(){
+    return 10
+  }
+}
+class Employee extends Person{
+  constructor(name){
+    super(name)
+    console.log(name + "Employee class constructor")
+  }
+  getId(){
+    return 50
+  }
+}
+const e = new Employee('Chandler')
+console.log(e.getId())  // 50 from child class
+```
+
+### scenario: accessing parent method in child class
+
+to access parent method in child class and also to access it through the instance of child class we need `super` keyword in child class.
+
+```
+// scenario: accessing parent method in child class
+class Person{
+  constructor(name){
+    console.log(name + " Person class constructor")
+  }
+  getId(){
+    return 10
+  }
+}
+class Employee extends Person{
+  constructor(name){
+    super(name)
+    console.log(name + "Employee class constructor")
+  }
+  getId(){
+    return super.getId() // accessing parent method.
+  }
+}
+const e = new Employee('Chandler')
+console.log(e.getId())  // 10 child class method calling parent class method.
+```
